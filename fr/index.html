@@ -18,20 +18,24 @@
 <link href='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.css' rel='stylesheet' />
 <link href='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.Default.css' rel='stylesheet' />
 
+
+<script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-label/v0.2.1/leaflet.label.js'></script>
+<link href='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-label/v0.2.1/leaflet.label.css' rel='stylesheet' />
+
 <script type="text/javascript" src="../js/circo.js"></script>
 
 
 <div id='map'></div>
-<a href='#' id='geolocate' class='ui-button'>Me localiser</a>
+<a style="text-decoration:none;" href='#' id='geolocate' class='ui-button'>Cliquez ici, pour vous localiser sur la carte</a>
 <a style="text-decoration:none;"href="http://www.mourakiboun.org/"><img src='../img/logo.png' id='logo'></a>
 
 <script>
 var geolocate = document.getElementById('geolocate');
-var map = L.mapbox.map('map','examples.map-i86nkdio').setView([ 36.811845 , 9.994389 ], 4);
+var map = L.mapbox.map('map','examples.map-i86nkdio',{attributionControl: false}).setView([ 36 , 10 ], 7);
 L.control.layers({  
     "Carte Routière": map.tileLayer,
     "Carte Satellite": L.mapbox.tileLayer("mehdi118218.iok998fb")
-}, null,{collapsed:false}).addTo(map);
+}, null).addTo(map);
 
 var myLayer = L.mapbox.featureLayer().addTo(map);
 
@@ -42,10 +46,24 @@ var myLayer = L.mapbox.featureLayer().addTo(map);
 // - The file must either be on the same domain as the page that requests it,
 //   or both the server it is requested from and the user's browser must
 //   support CORS.
+/*
 
-//var geojson = L.geoJson(circooo).addTo(map);
+
+//AMINE
+function onEachFeature(feature, layer) {
+    // does this feature have a property named popupContent?
+    if (feature.properties && feature.properties.NAME) {
+        layer.bindLabel('<div > <h3>'+feature.properties.NAME+'</h3>'
+                +'Nombre de centres de vote' + feature.properties.needed + '</h4></div>');
+    }
+}
 
 
+var geojson = L.geoJson(circooo, {
+    onEachFeature: onEachFeature
+}).addTo(map);
+
+*/
 
 var runLayer = omnivore.csv('../data/liste_22_07.csv')
 .on('ready', function(e) {
@@ -71,7 +89,7 @@ var runLayer = omnivore.csv('../data/liste_22_07.csv')
     map.addLayer(clusterGroup);
 });
 
-map.attributionControl.addAttribution('Election data &copy; <a href="http://mourakiboun.org/">Mourakiboun</a>');
+//map.attributionControl.addAttribution('Election data &copy; <a href="http://mourakiboun.org/">Mourakiboun</a>');
 
 
 
@@ -115,7 +133,7 @@ map.on('locationfound', function(e) {
 // If the user chooses not to allow their location
 // to be shared, display an error message.
 map.on('locationerror', function() {
-    geolocate.innerHTML = 'Position could not be found';
+    geolocate.innerHTML = 'Veuillez autoriser la localisation sur votre navigateur';
 });
 
 

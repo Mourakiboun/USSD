@@ -2,12 +2,12 @@ body { margin:0; padding:0; }
   
 
 #map { position:absolute; top:0; bottom:0; width:100%; }
-#logo { position:absolute;  left:15px;bottom:20px; width:143px; height: 45px;text-align: center;}  
+#logo { position:absolute;  left:15px;bottom:20px; width:14%; height: 7%;text-align: center;}  
 #bg-img {position:fixed;top:0;left:0;width:100%;height:100%;}
 #popup {position:fixed;top:15%;left:15%;width:70%;height:70%;background:white;-moz-border-radius: 15px;border-radius: 15px;}
-#logo2 { position:absolute;  right:15px;bottom:20px; width:143px; height: 45px;text-align: center;}  
-#title-fr {text-align:center; font-size:89%;  color: #003375;}
-#title-ar {text-align:center; font-size:95%;  color: #003375;}
+#logo2 { position:absolute;  right:15px;bottom:20px; width:14%; height: 7%;text-align: center;}  
+#title-fr {text-align:center; font-size:3vmax;  color: #003375;}
+#title-ar {text-align:center; font-size:3vmax;  color: #003375;}
 
 
 
@@ -37,14 +37,16 @@ body { margin:0; padding:0; }
   color:#FFF;
   z-index:100;
   text-align:center;
-  padding:10px;
+  padding:3px;
   border:1px solid rgba(0,0,0,0.4);
   border-radius:13px;
   margin-left: 5%;
   margin-right: 5%;
   margin-top: 8%;
   display:inline-block;
-  width: 120px;
+  width: 12%;
+  height: 7%;
+  font-size:2.2vmax;
   }
   .ui-button2:hover {
     background:#004094;
