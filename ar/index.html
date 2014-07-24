@@ -27,11 +27,11 @@
 
 <script>
 var geolocate = document.getElementById('geolocate');
-var map = L.mapbox.map('map','examples.map-i86nkdio').setView([ 36 , 10 ], 7);
+var map = L.mapbox.map('map','examples.map-i86nkdio',{attributionControl: false}).setView([ 36 , 10 ], 7);
 L.control.layers({  
     "خارطة الطرقات": map.tileLayer,
     "الأقمار الصناعية": L.mapbox.tileLayer("mehdi118218.iok998fb")
-}, null,{collapsed:false}).addTo(map);
+}, null).addTo(map);
 
 var myLayer = L.mapbox.featureLayer().addTo(map);
 
@@ -50,7 +50,7 @@ var myLayer = L.mapbox.featureLayer().addTo(map);
 
 
 
-var runLayer = omnivore.csv('../data/liste_22_07.csv')
+var runLayer = omnivore.csv('../data/liste_24_07.csv')
 .on('ready', function(e) {
     // The clusterGroup gets each marker in the group added to it
     // once loaded, and then is added to the map
@@ -75,7 +75,7 @@ var runLayer = omnivore.csv('../data/liste_22_07.csv')
     map.addLayer(clusterGroup);
 });
 
-map.attributionControl.addAttribution('Election data &copy; <a href="http://mourakiboun.org/">Mourakiboun</a>');
+//map.attributionControl.addAttribution('Election data &copy; <a href="http://mourakiboun.org/">Mourakiboun</a>');
 
 
 
