@@ -22,12 +22,12 @@
 
 
 <div id='map'></div>
-<a href='#' id='geolocate' class='ui-button'>حدد موقعك</a>
-<a style="text-decoration:none;"href="http://www.mourakiboun.org/"><img src='../img/logo.png' id='logo'></a>
+<a style="text-decoration:none;" href='#' id='geolocate' class='ui-button'>إضغط هنا، لتحديد مكانك على الخريطة</a>
+<a style="text-decoration:none;" href="http://www.mourakiboun.org/"><img src='../img/logo.png' id='logo'></a>
 
 <script>
 var geolocate = document.getElementById('geolocate');
-var map = L.mapbox.map('map','examples.map-i86nkdio').setView([ 36.811845 , 9.994389 ], 4);
+var map = L.mapbox.map('map','examples.map-i86nkdio').setView([ 36 , 10 ], 7);
 L.control.layers({  
     "خارطة الطرقات": map.tileLayer,
     "الأقمار الصناعية": L.mapbox.tileLayer("mehdi118218.iok998fb")
